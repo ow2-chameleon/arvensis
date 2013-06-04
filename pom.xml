@@ -23,8 +23,8 @@
 
 	<properties>
 		<!-- Dependencies version -->
-		<ipojo.version>1.8.2</ipojo.version>
-		<ipojo.plugin.version>1.8.4</ipojo.plugin.version>
+		<ipojo.version>1.10.0</ipojo.version>
+		<ipojo.plugin.version>1.10.0</ipojo.plugin.version>
 		<osgi.version>4.3.1</osgi.version>
     <osgi.ent.version>4.2.0</osgi.ent.version>
 		<bundle.plugin.version>2.3.7</bundle.plugin.version>
@@ -46,7 +46,18 @@
 	</properties>
 
 	<profiles>
-
+		<profile>
+			<id>all</id>
+			<modules>
+				<module>core</module>
+				<module>configurator/configurator-json</module>
+				<module>jax-rs/jersey-exporter</module>
+				<module>jax-ws/cxf-exporter</module>
+				<module>jax-ws/cxf-importer</module>
+				<module>json-rpc/jabsorb-exporter</module>
+				<module>json-rpc/jabsorb-importer</module>
+			</modules>
+		</profile>
 		<!-- Profile used to build core bundles-->
 		<profile>
 			<id>core</id>
@@ -108,17 +119,17 @@
 	</profiles>
 
 	<scm>
-		<connection>scm:git:git@github.com:barjo/arvensis.git</connection>
-		<url>scm:git:git@github.com:barjo/arvensis.git</url>
-		<developerConnection>scm:git:git@github.com:barjo/arvensis.git</developerConnection>
-	  <tag>HEAD</tag>
-  </scm>
+		<connection>scm:git:git@github.com:ow2-chameleon/arvensis.git</connection>
+		<url>scm:git:git@github.com:ow2-chameleon/arvensis.git</url>
+		<developerConnection>scm:git:git@github.com:ow2-chameleon/arvensis.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
 
 	<distributionManagement>
 		<repository>
 			<id>cloudbees-release</id>
 			<name>Cloudbees Private Repository</name>
-			<url>dav:https://repository-barjo.forge.cloudbees.com/release</url>
+			<url>dav:https://repository-adele-rose.forge.cloudbees.com/release</url>
 		</repository>
 	</distributionManagement>
 
@@ -151,12 +162,12 @@
 		<repository>
 			<id>cloudbees-rose-release</id>
 			<name>Cloudbees Private Repository - RoSe - Release </name>
-			<url>https://repository-barjo.forge.cloudbees.com/release/</url>
+			<url>https://repository-adele-rose.forge.cloudbees.com/release/</url>
 		</repository>
 		<repository>
 			<id>cloudbees-rose-snapshot</id>
 			<name>Cloudbees Private Repository - RoSe - Snapshot</name>
-			<url>https://repository-barjo.forge.cloudbees.com/snapshot/</url>
+			<url>https://repository-adele-rose.forge.cloudbees.com/snapshot/</url>
 		</repository>
 		<!-- Java.net repo -->
 		<repository>
