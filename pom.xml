@@ -17,7 +17,7 @@
 
 	<groupId>org.ow2.chameleon.rose</groupId>
 	<artifactId>rose-parent</artifactId>
-	<version>1.1.1-SNAPSHOT</version>
+	<version>1.1.1</version>
 	<name>Rose Parent</name>
 	<packaging>pom</packaging>
 
@@ -122,7 +122,7 @@
 		<connection>scm:git:git@github.com:ow2-chameleon/arvensis.git</connection>
 		<url>scm:git:git@github.com:ow2-chameleon/arvensis.git</url>
 		<developerConnection>scm:git:git@github.com:ow2-chameleon/arvensis.git</developerConnection>
-		<tag>HEAD</tag>
+		<tag>rose-parent-1.1.1</tag>
 	</scm>
 
 	<distributionManagement>
