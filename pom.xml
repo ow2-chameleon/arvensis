@@ -12,7 +12,7 @@
 
 	<groupId>org.ow2.chameleon.rose</groupId>
 	<artifactId>rose-parent</artifactId>
-	<version>1.2.0</version>
+	<version>1.2.0-SNAPSHOT</version>
 	<name>Rose Parent</name>
 	<packaging>pom</packaging>
 
@@ -163,6 +163,11 @@
 			</snapshots>
 		</repository>
 		<!-- cloudbee repo -->
+		<repository>
+			<id>rose-nexus-release</id>
+			<name>Cloudbees Private Repository - RoSe - Release </name>
+			<url>http://repository.ow2.org/nexus/service/local/staging/deploy/maven2/</url>
+		</repository>		
 		<repository>
 			<id>cloudbees-rose-release</id>
 			<name>Cloudbees Private Repository - RoSe - Release </name>
