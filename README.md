@@ -24,15 +24,9 @@ RoSe is licensed under the Apache License 2.0.
 		
 ```xml
 <repository>
-	<id>maven-barjo-repository-release</id>
-	<name>RoSe - Release</name>
-	<url>https://repository-barjo.forge.cloudbees.com/release/</url>
-	<layout>default</layout>
-</repository>
-<repository>
-	<id>maven-barjo-repository-snapshot</id>
-	<name>RoSe - Snapshot</name>
-	<url>https://repository-barjo.forge.cloudbees.com/snapshot/</url>
+	<id>ow2-nexus-public</id>
+	<name>RoSe - Releases and Snapshots</name>
+	<url>http://repository.ow2.org/nexus/content/groups/public/</url>
 	<layout>default</layout>
 </repository>
 ```
@@ -45,4 +39,8 @@ RoSe is licensed under the Apache License 2.0.
  * _minor_ changed when minor features or critical fixes have been added.
  * _revision_ changed when minor bugs are fixed.
 
+#Changelog
 
+* Rose 1.2
+	* **Migrating maven repository** from cloudbees to OW2
+	* Supporting **iPOJO 1.10.0**
