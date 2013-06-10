@@ -121,6 +121,15 @@
 					of OSGi class Version in framework -->
 			</modules>
 		</profile>
+
+		<!-- atmosphere-osgi will cease to exist an independent project in the near future -->
+		<profile>
+			<id>atmosphere-osgi</id>
+			<modules>
+				<module>3tdparty/atmosphere-osgi</module>
+			</modules>
+		</profile>
+
 	</profiles>
 
 	<scm>
