@@ -20,14 +20,14 @@
 
     <!--Project's parent-->
     <parent>
-        <groupId>org.barjo.atmosgi</groupId>
+        <groupId>org.ow2.chameleon.rose.atmosphere</groupId>
         <artifactId>atmosgi-parent</artifactId>
         <version>1.2.2-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <!-- Description of the project -->
-    <groupId>org.barjo.atmosgi</groupId>
+    <groupId>org.ow2.chameleon.rose.atmosphere</groupId>
     <artifactId>atmosgi-service</artifactId>
     <name>Atmosphere OSGi Service</name>
     <packaging>bundle</packaging>
