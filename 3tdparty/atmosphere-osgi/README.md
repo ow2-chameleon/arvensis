@@ -18,11 +18,3 @@ Infrastructure
 
 ### Repository 
   	
-```xml
-<repository>
-	<id>maven-barjo-repository-snapshot</id>
-	<name>Barjo - Snapshot</name>
-	<url>https://repository-barjo.forge.cloudbees.com/snapshot/</url>
-	<layout>default</layout>
-</repository>
-```
