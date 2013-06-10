@@ -60,6 +60,8 @@
 				<module>jax-ws/cxf-importer</module>
 				<module>json-rpc/jabsorb-exporter</module>
 				<module>json-rpc/jabsorb-importer</module>
+				<!-- atmosphere, should cease to exist as a 3td party application -->
+				<module>3tdparty/atmosphere-osgi</module>
 			</modules>
 		</profile>
 		<!-- Profile used to build core bundles -->
