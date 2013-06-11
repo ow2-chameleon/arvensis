@@ -62,6 +62,8 @@
 				<module>json-rpc/jabsorb-importer</module>
 				<!-- atmosphere, should cease to exist as a 3td party application -->
 				<module>3tdparty/atmosphere-osgi</module>
+				<!-- rose deployment package -->
+				<module>3tdparty/rose-dp</module>
 			</modules>
 		</profile>
 		<!-- Profile used to build core bundles -->

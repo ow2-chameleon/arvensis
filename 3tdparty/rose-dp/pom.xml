@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+    	<!-- Project parent -->
+	<parent>
+		<groupId>org.ow2.chameleon.rose</groupId>
+		<artifactId>rose-parent</artifactId>
+		<version>1.2.2-SNAPSHOT</version>
+		<relativePath>../../pom.xml</relativePath>
+	</parent>
+
+	<!-- Project Description -->
+	<artifactId>rose.dp</artifactId>
+	<packaging>deployment-package</packaging>
+	<description>Rose Deployment Package</description>
+	<name>OW2 Chameleon - Rose DP</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.ow2.chameleon.rose</groupId>
+			<artifactId>rose-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.ow2.chameleon.rose</groupId>
+			<artifactId>json-configurator</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.ow2.chameleon.json</groupId>
+			<artifactId>json-service-json.org</artifactId>
+			<version>0.4.0</version>
+		</dependency>
+	</dependencies>
+
+
+	<pluginRepositories>
+	<!-- de.akquinet.gomobile:maven-dp-plugin dependency -->
+	    <pluginRepository>
+	      <id>adele-repos</id>
+		<name>Dynamis-technology adele</name>
+		<url>http://maven.dynamis-technologies.com/artifactory/adele-repos/</url>
+	    </pluginRepository>
+	</pluginRepositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>de.akquinet.gomobile</groupId>
+				<artifactId>maven-dp-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<writeExtraData>true</writeExtraData>
+					<deploymentPackage>
+						<resources>
+
+						</resources>
+					</deploymentPackage>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

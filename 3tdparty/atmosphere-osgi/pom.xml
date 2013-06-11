@@ -22,7 +22,7 @@
 		<groupId>org.ow2.chameleon.rose</groupId>
 		<artifactId>rose-parent</artifactId>
 		<version>1.2.2-SNAPSHOT</version>
-		<relativePath>../pom.xml</relativePath>
+		<relativePath>../../pom.xml</relativePath>
 	</parent>
 
 	<groupId>org.ow2.chameleon.rose.atmosphere</groupId>
@@ -138,6 +138,7 @@
 			<name>Maven Java Net Snapshots and Releases</name>
 			<url>https://maven.java.net/content/groups/public</url>
 		</repository>
+
 	</repositories>
 
 	<build>
