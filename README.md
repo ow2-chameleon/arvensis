@@ -1,7 +1,6 @@
 #RoSe Readme 
 
-
-## Source Organization: 
+## Source Organization
 
 This folder contains the code source of the OW2 Chameleon RoSe project.
 
@@ -17,10 +16,9 @@ This folder contains the code source of the OW2 Chameleon RoSe project.
 
 RoSe is licensed under the Apache License 2.0.
 
-
 ## Infrastructure
 
-### Repository 
+### Maven Repository 
 		
 ```xml
 <repository>
@@ -31,7 +29,18 @@ RoSe is licensed under the Apache License 2.0.
 </repository>
 ```
 
-#Released Version semantic: 
+# Release
+
+## Changelog
+
+* Rose 1.2.2 [details](https://github.com/ow2-chameleon/arvensis/issues?milestone=2&page=1&state=closed) (currently in development) 
+	* Not definitive list of features yet
+
+* Rose 1.2.0 [details](http://github.com/ow2-chameleon/arvensis/issues?milestone=4&state=closed) 
+	* **Migrating maven repository** from cloudbees to OW2
+	* Supporting **iPOJO 1.10.0**
+
+## Released Version semantic
 
  major.minor.revision 
 
@@ -39,11 +48,3 @@ RoSe is licensed under the Apache License 2.0.
  * _minor_ changed when minor features or critical fixes have been added.
  * _revision_ changed when minor bugs are fixed.
 
-#Changelog
-
-* Rose 1.2.2 [details](https://github.com/ow2-chameleon/arvensis/issues?milestone=2&page=1&state=closed) (in development) 
-	* Not definitive list of features
-
-* Rose 1.2.0 [details](http://github.com/ow2-chameleon/arvensis/issues?milestone=4&state=closed) 
-	* **Migrating maven repository** from cloudbees to OW2
-	* Supporting **iPOJO 1.10.0**
