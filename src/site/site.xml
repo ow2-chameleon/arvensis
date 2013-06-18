@@ -1,0 +1,71 @@
+<project name="RoSe" xmlns="http://maven.apache.org/DECORATION/1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/DECORATION/1.0.0 http://maven.apache.org/xsd/decoration-1.0.0.xsd">
+	<bannerLeft>
+		<name>RoSe</name>
+		<src>200px-Rose_logo.png</src>
+		<href>#</href>
+	</bannerLeft>
+
+	<version position="left"/>
+
+	<skin>
+		<groupId>org.apache.maven.skins</groupId>
+		<artifactId>maven-stylus-skin</artifactId>
+		<version>1.5</version>
+	</skin>
+
+	<body>
+		
+		<head>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>			
+			<link href="css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+<!--	
+			Bootstrap loader			
+			<script src="http://code.jquery.com/jquery.js" type="text/javascript"/>
+			<script src="js/bootstrap.min.js" type="text/javascript"/>
+-->
+		</head>
+
+		<menu ref="reports" />
+
+		<menu name="Introduction">
+			<item name="Concepts" href="Concepts.html" />
+			<item name="Getting-Started" href="Getting-Started.html" />
+		</menu>
+
+		<menu name="Protocols">
+			<item name="Discovery" href="Available-discovery-protocols.html" />
+			<item name="Invocation" href="Available-invocation-protocols.html" />
+			<item name="Details" href="#">
+				<item name="JSON-RPC" href="JSON-RPC-(import-export).html" />
+				<item name="JAX-RS" href="JAX-RS-(export-only).html" />
+				<item name="XML-RPC" href="XML-RPC-(import-export).html" />
+				<item name="JAX-WS" href="JAX-WS-(import-export).html" />
+			</item>
+
+		</menu>
+
+		<menu name="API">
+			<item name="REST API" href="Rest-API.html" />
+			<item name="REST Inspect API" href="Rest-inspect-api.html" />
+		</menu>
+
+		<menu name="Exporters">
+			<item name="JSON-RPC Exporter" href="Json-rpc-exporter.html" />
+			<item name="Jax-Rs Exporter" href="JAX-RS-(export-only).html" />
+		</menu>
+
+		<menu name="Importers">
+			<item name="JSON-RPC Importer" href="Json-rpc-importer.html" />
+		</menu>
+
+		<menu name="Custom Importers/Exporters">
+			<item name="Importer" href="Create-your-own.html" />
+		</menu>
+	
+	
+
+	</body>
+
+</project>
