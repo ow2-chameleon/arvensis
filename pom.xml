@@ -7,7 +7,8 @@
 	OR CONDITIONS OF ANY KIND, either express or implied. See the License for 
 	the specific language governing permissions and limitations under the License. -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.ow2.chameleon.rose</groupId>
@@ -41,9 +42,10 @@
 		<pax-url.version>1.4.2</pax-url.version>
 		<pax-runner.version>1.7.6</pax-runner.version>
 		<felix.version>4.0.2</felix.version>
-
 		<!-- Encoding -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- Website deploy -->
+		<site.path>snapshot</site.path>
 	</properties>
 
 	<profiles>
@@ -126,7 +128,8 @@
 			</modules>
 		</profile>
 
-		<!-- atmosphere-osgi will cease to exist an independent project in the near future -->
+		<!-- atmosphere-osgi will cease to exist an independent project in the 
+			near future -->
 		<profile>
 			<id>atmosphere-osgi</id>
 			<modules>
@@ -142,16 +145,6 @@
 		<developerConnection>scm:git:git@github.com:ow2-chameleon/arvensis.git</developerConnection>
 		<tag>1.2.0</tag>
 	</scm>
-
-	<!-- alternative repository in cloudbees 
-	<distributionManagement>
-		<repository>
-			<id>cloudbees-release</id>
-			<name>Cloudbees Private Repository</name>
-			<url>dav:https://repository-adele-rose.forge.cloudbees.com/release</url>
-		</repository>
-	</distributionManagement>
-	 -->
 
 	<!-- Maven Repo -->
 	<repositories>
@@ -183,7 +176,7 @@
 			<id>rose-nexus-release</id>
 			<name>Cloudbees Private Repository - RoSe - Release </name>
 			<url>http://repository.ow2.org/nexus/service/local/staging/deploy/maven2/</url>
-		</repository>		
+		</repository>
 		<repository>
 			<id>cloudbees-rose-release</id>
 			<name>Cloudbees Private Repository - RoSe - Release </name>
@@ -207,11 +200,11 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
-  				<configuration>
-                    <useReleaseProfile>false</useReleaseProfile>
-                    <arguments>-Pall</arguments>
-                    <goals>deploy</goals>
-                </configuration>				
+				<configuration>
+					<useReleaseProfile>false</useReleaseProfile>
+					<arguments>-Pall</arguments>
+					<goals>deploy</goals>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -221,6 +214,64 @@
 					<excludePackageNames>*.internal,*.internal.*</excludePackageNames>
 				</configuration>
 			</plugin>
+
+
+			<plugin>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.0</version>
+				<configuration>
+					<skipDeploy>true</skipDeploy>
+					<reportPlugins>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-project-info-reports-plugin</artifactId>
+							<version>2.4</version>
+							<configuration>
+								<dependencyDetailsEnabled>false</dependencyDetailsEnabled>
+								<dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+							</configuration>
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-surefire-report-plugin</artifactId>
+							<version>2.5</version>
+						</plugin>
+					</reportPlugins>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.doxia</groupId>
+						<artifactId>doxia-module-markdown</artifactId>
+						<version>1.4</version>
+					</dependency>
+					<dependency>
+						<groupId>org.pegdown</groupId>
+						<artifactId>pegdown</artifactId>
+						<version>1.3.0</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+			<plugin>
+				<!-- Deploy the web site -->
+				<groupId>com.github.github</groupId>
+				<artifactId>site-maven-plugin</artifactId>
+				<version>0.5</version>
+				<executions>
+				    <execution>
+					<goals>
+					    <goal>site</goal>
+					</goals>
+					<phase>site-deploy</phase>
+					<configuration>
+					    <message>Building site for ${project.version}</message>
+					    <path>${site.path}</path>
+					    <server>ow2-github</server>
+					</configuration>
+				    </execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 
 		<extensions>
