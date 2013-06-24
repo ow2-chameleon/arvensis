@@ -1,0 +1,14 @@
+org.barjo.atmosgi
+org.barjo.atmosgi.internal
+org.ow2.chameleon.rose
+org.ow2.chameleon.rose.api
+org.ow2.chameleon.rose.configurator
+org.ow2.chameleon.rose.dto
+org.ow2.chameleon.rose.internal
+org.ow2.chameleon.rose.introspect
+org.ow2.chameleon.rose.jsonrpc
+org.ow2.chameleon.rose.registry
+org.ow2.chameleon.rose.rest
+org.ow2.chameleon.rose.rest.provider
+org.ow2.chameleon.rose.util
+org.ow2.chameleon.rose.ws.internal
