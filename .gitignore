@@ -11,7 +11,7 @@
 
 *.iml
 .idea
-
+*.*~
 # maven #
 #########
 maven-eclipse.xml
