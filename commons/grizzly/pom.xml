@@ -16,7 +16,7 @@
 		<parent>
 				<artifactId>rose-parent</artifactId>
 				<groupId>org.ow2.chameleon.rose</groupId>
-				<version>1.2.2-SNAPSHOT</version>
+				<version>1.2.2</version>
 				<relativePath>../../pom.xml</relativePath>
 		</parent>
 
