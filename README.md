@@ -33,8 +33,12 @@ RoSe is licensed under the Apache License 2.0.
 
 ## Changelog
 
-* Rose 1.2.2 [details](https://github.com/ow2-chameleon/arvensis/issues?milestone=2&page=1&state=closed) (currently in development) 
+* Rose 1.2.3 [details](https://github.com/ow2-chameleon/arvensis/issues?milestone=5&page=1&state=closed) (currently in development) 
 	* Not definitive list of features yet
+
+* Rose 1.2.2 [details](https://github.com/ow2-chameleon/arvensis/issues?milestone=2&page=1&state=closed)  
+	* Including Rose Deployment package
+	* Including Rose Atmosphere OSGi
 
 * Rose 1.2.0 [details](http://github.com/ow2-chameleon/arvensis/issues?milestone=4&state=closed) 
 	* **Migrating maven repository** from cloudbees to OW2
