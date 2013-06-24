@@ -151,9 +151,9 @@
 									<outputDirectory>${runtime.dir}</outputDirectory>
 								</artifactItem>
 								<artifactItem>
-									<groupId>org.ow2.chameleon.commons.grizzly</groupId>
+									<groupId>org.ow2.chameleon.rose</groupId>
 									<artifactId>grizzly-bundle</artifactId>
-									<version>${grizzly.version}-0001-SNAPSHOT</version>
+									<version>${project.version}</version>
 									<overWrite>true</overWrite>
 									<outputDirectory>${runtime.dir}</outputDirectory>
 								</artifactItem>

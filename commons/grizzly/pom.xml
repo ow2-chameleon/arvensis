@@ -16,14 +16,12 @@
 		<parent>
 				<artifactId>rose-parent</artifactId>
 				<groupId>org.ow2.chameleon.rose</groupId>
-				<version>1.2.0-SNAPSHOT</version>
+				<version>1.2.2-SNAPSHOT</version>
 				<relativePath>../../pom.xml</relativePath>
 		</parent>
 
 		<modelVersion>4.0.0</modelVersion>
-		<groupId>org.ow2.chameleon.commons.grizzly</groupId>
-		<artifactId>grizzly-bundle</artifactId>
-		<version>2.3-0002-SNAPSHOT</version>
+		<artifactId>rose-grizzly-bundle</artifactId>
 		<packaging>bundle</packaging>
 		<name>OW2 Chameleon - Grizzly OSGi HttpService bundle (RoSe version)</name>
 		<description>
