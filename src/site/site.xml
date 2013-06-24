@@ -4,67 +4,109 @@
 	<bannerLeft>
 		<name>RoSe</name>
 		<src>200px-Rose_logo.png</src>
-		<href>#</href>
+		<href>index.html</href>
 	</bannerLeft>
 
 	<version position="left"/>
-
+<!--
+	<skin>
+	    <groupId>org.apache.maven.skins</groupId>
+	    <artifactId>maven-stylus-skin</artifactId>
+	    <version>1.5</version>
+	</skin>
+-->
 	<skin>
 		<groupId>org.apache.maven.skins</groupId>
-		<artifactId>maven-stylus-skin</artifactId>
-		<version>1.5</version>
+		<artifactId>maven-fluido-skin</artifactId>
+		<version>1.3.0</version>
 	</skin>
+
+	<custom>
+		<fluidoSkin>
+		<topBarEnabled>false</topBarEnabled>
+		<topBarContainerStyle>width: 50%;</topBarContainerStyle>
+		</fluidoSkin>
+	</custom>
 
 	<body>
 		
 		<head>
+<!--	
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>			
 			<link href="css/bootstrap.min.css" rel="stylesheet" media="screen"/>
-<!--	
+
 			Bootstrap loader			
 			<script src="http://code.jquery.com/jquery.js" type="text/javascript"/>
-			<script src="js/bootstrap.min.js" type="text/javascript"/>
--->
+			<script src="js/bootstrap.min.js" type="text/javascript"/> -->
+
 		</head>
 
-		<menu ref="reports" />
-
 		<menu name="Introduction">
-			<item name="Concepts" href="Concepts.html" />
-			<item name="Getting-Started" href="Getting-Started.html" />
+			<item name="What is it for?" href="introduction/basic.html" />
+			<item name="Terms and Jargon" href="introduction/terms-and-jargon.html" />					
+			<item name="Builtin protocols" href="introduction/protocols.html" />
+		</menu>
+
+		<menu name="Coding">
+			<item name="Machine registration" href="introduction/machine-registration.html" />				
+			<item name="Discovery" href="Available-discovery-protocols.html" />
+		</menu>
+
+		<menu name="Running Rose">
+			<item name="Installing" href="configuration/install-rose.html" />	
+		</menu>
+<!--
+		<menu name="Example">
+			<item name="Example-01" href="" />
+		</menu>
+-->
+		<menu name="Understanding deeply">
+			<item name="Getting started" href="introduction/getting-started.html" />
+			<item name="Rose machine anatomy" href="introduction/anatomy.html" />
 		</menu>
 
 		<menu name="Protocols">
-			<item name="Discovery" href="Available-discovery-protocols.html" />
-			<item name="Invocation" href="Available-invocation-protocols.html" />
 			<item name="Details" href="#">
-				<item name="JSON-RPC" href="JSON-RPC-(import-export).html" />
-				<item name="JAX-RS" href="JAX-RS-(export-only).html" />
-				<item name="XML-RPC" href="XML-RPC-(import-export).html" />
+				<item name="JSON-RPC" href="protocol/json-rpc.html" />
+				<item name="JAX-RS" href="protocol/jax-rs.html" />
+				<!--
+				<item name="XML-RPC" href="XML-RPC-(import-export).html" />				
 				<item name="JAX-WS" href="JAX-WS-(import-export).html" />
+				-->
 			</item>
-
 		</menu>
 
-		<menu name="API">
-			<item name="REST API" href="Rest-API.html" />
-			<item name="REST Inspect API" href="Rest-inspect-api.html" />
+		<menu name="API/Spec">
+			<item name="Rose API" href="apidocs/index.html" />
+			<item name="Rose DSL Spec" href="spec/dsl-spec.html" />
+			<item name="REST API" href="spec/Rest-API.html" />
+			<item name="REST Inspect API" href="spec/Rest-inspect-api.html" />
+			<item name="JSON configuration" href="configuration/json-configuration-file.html" />
 		</menu>
 
 		<menu name="Exporters">
-			<item name="JSON-RPC Exporter" href="Json-rpc-exporter.html" />
-			<item name="Jax-Rs Exporter" href="JAX-RS-(export-only).html" />
+			<item name="JSON-RPC Exporter" href="protocol/json-rpc-exporter.html" />
+			<item name="Jax-Rs Exporter" href="protocol/jax-rs.html" />
 		</menu>
 
 		<menu name="Importers">
-			<item name="JSON-RPC Importer" href="Json-rpc-importer.html" />
+			<item name="JSON-RPC Importer" href="protocol/json-rpc-importer.html" />
 		</menu>
 
-		<menu name="Custom Importers/Exporters">
-			<item name="Importer" href="Create-your-own.html" />
+		<menu name="Custom components">
+			<item name="Introduction" href="advanced/custom-intro.html" />
+			<!--
+			<item name="Importer" href="index.html" />
+			<item name="Exporter" href="index.html" />
+			-->
+			<item name="Discovery" href="advanced/discovery-pubsubhubbub.html" />
 		</menu>
-	
-	
+	<!-- 	-->
+
+		<menu ref="modules" />
+		<menu ref="parents" />
+
+		<menu ref="reports" />
 
 	</body>
 

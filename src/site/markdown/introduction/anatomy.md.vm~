@@ -1,0 +1,48 @@
+## RoSe Machine ##
+
+The **Machine** is the core concept of RoSe. A machine allows you to export local OSGi services via different protocol (e.g web-services, http, json-rpc) and to create proxies in the OSGi broker for available remote services.  
+
+In order to _export_ local services (available in the OSGi broker) you must add an **Out** connection to the machine. Similarly, in order to _import_  remote services (available on the network) into the OSGi broker, you must add an **In** connection to the **Machine**.  
+
+However, only adding Out and In connections to the machine is not enough. Indeed, you must also declare **instances** of components that will create the endpoint, and proxies for the services, and remote services specified in the machine connections.
+
+The following example show how to create a RoSe Machine through the [[Java Fluent API]]. In this sample, we create the machine of id "machine", then we add an **Out** connection, which export all services of contract _org.toto.HelloWorld_. Finally, we create an instance of the _RoSe_exporter.jabsorb_ component, so the out connection will use the Jabsorb (JSON-RPC) exporter to export the services.
+
+```java
+BundleContext context;
+//...
+Machine myMachine = machine(context,"myMachine").host("localhost").create();
+myMachine.out("(objectClass=org.toto.HelloWorld)").add();
+myMachine.instance("RoSe_exporter.jabsorb").withProperty("jabsorb.servlet.name","/jsonrpc").create();
+myMachine.start(); //start the machine!
+```
+
+You can add and remove Machines connections and instances at runtime, stopping the machine and starting it. There is three way to create the RoSe Machine: 
+
+1. a programmatic way with the [Java Fluent API](Java-Fluent-API.html),
+2. a declarative way with the [Json Configuration](Json-Configuration.html) files,
+3. over HTTP with the [REST API](Rest-API.html).
+
+Furthermore, you can check the Machines running in OSGi as well as the services exported and the remote services imported through those machines thanks to the [[REST Inspect API]].
+
+|Property|Type|Optional|Default|
+|-----------|------------|------------|------------|
+id|String|false||
+host|String|true|localhost
+out|OutConnection[]|true||
+in|InConnection[]|true||
+instance|Instance[]|true||
+[Attributes]
+
+###In Connections
+**TODO**
+###Out Connections
+The Out connections allows you to export OSGi services. That is to say, to create endpoints for your OSGi services that will make them callable through the network. An Out connection must be link to a RoSe machine and contains a _service\_filter_. The machine will then try to create an endpoint for each OSGi services matching the given filter. By default, the machine will use all Exporter linked to it in order to create the endpoint, you can also choose to use only some specific protocols by the setting the _protocol_ property.  
+
+|Property|Type|Optional|Default|
+|-----------|------------|------------|------------|
+|service_filter|LDAP String|false||
+|protocol|String[]|true|["*"]|
+[Out attributes]
+
+

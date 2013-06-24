@@ -31,7 +31,7 @@
 		<osgi.ent.version>4.2.0</osgi.ent.version>
 		<bundle.plugin.version>2.3.7</bundle.plugin.version>
 		<compiler.plugin.version>2.5.1</compiler.plugin.version>
-		<javadoc.plugin.version>2.8.1</javadoc.plugin.version>
+		<javadoc.plugin.version>2.9</javadoc.plugin.version>
 		<jersey.version>1.9</jersey.version>
 		<grizzly.version>2.3</grizzly.version>
 
@@ -46,6 +46,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- Website deploy -->
 		<site.path>snapshot</site.path>
+		<github.global.server>github</github.global.server>
 	</properties>
 
 	<profiles>
@@ -87,15 +88,6 @@
 				<module>jax-ws/cxf-importer</module>
 				<module>json-rpc/jabsorb-exporter</module>
 				<module>json-rpc/jabsorb-importer</module>
-			</modules>
-		</profile>
-
-		<!-- Profile used to build commons bundles -->
-		<profile>
-			<id>commons</id>
-			<modules>
-				<module>commons/cxf-minimal</module>
-				<module>commons/grizzly</module>
 			</modules>
 		</profile>
 
@@ -211,14 +203,27 @@
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>${javadoc.plugin.version}</version>
 				<configuration>
-					<excludePackageNames>*.internal,*.internal.*</excludePackageNames>
+					  <outputDirectory>${project.parent.basedir}/target/site/api/</outputDirectory>
+					  <aggregate>true</aggregate>
 				</configuration>
+
+			      <executions>
+				  <execution>
+				    <goals>
+				      <goal>javadoc</goal>
+				      <goal>test-javadoc</goal>
+				    </goals>
+				    <phase>site</phase>
+				    <configuration>
+				    </configuration>
+				  </execution>
+				</executions>
 			</plugin>
 
 
 			<plugin>
 				<artifactId>maven-site-plugin</artifactId>
-				<version>3.0</version>
+				<version>3.3</version>
 				<configuration>
 					<skipDeploy>true</skipDeploy>
 					<reportPlugins>
@@ -266,7 +271,7 @@
 					<configuration>
 					    <message>Building site for ${project.version}</message>
 					    <path>${site.path}</path>
-					    <server>ow2-github</server>
+					    <!-- authentication goes here-->
 					</configuration>
 				    </execution>
 				</executions>
@@ -282,6 +287,8 @@
 			</extension>
 		</extensions>
 	</build>
+
+
 
 </project>
 

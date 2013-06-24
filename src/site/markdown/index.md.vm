@@ -1,1 +1,0 @@
-The **RoSe Machine** is the core concept of RoSe. A machine allows you to export local OSGi services via different protocol (e.g web-services, http, json-rpc) and to create proxies in the OSGi broker for available remote services.

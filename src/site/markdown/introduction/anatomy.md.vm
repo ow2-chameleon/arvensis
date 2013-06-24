@@ -1,4 +1,5 @@
-###RoSe Machine
+RoSe Machine
+===========
 
 The **Machine** is the core concept of RoSe. A machine allows you to export local OSGi services via different protocol (e.g web-services, http, json-rpc) and to create proxies in the OSGi broker for available remote services.  
 
@@ -8,13 +9,14 @@ However, only adding Out and In connections to the machine is not enough. Indeed
 
 The following example show how to create a RoSe Machine through the [[Java Fluent API]]. In this sample, we create the machine of id "machine", then we add an **Out** connection, which export all services of contract _org.toto.HelloWorld_. Finally, we create an instance of the _RoSe_exporter.jabsorb_ component, so the out connection will use the Jabsorb (JSON-RPC) exporter to export the services.
 
-    BundleContext context;
-    //...
-    Machine myMachine = machine(context,"myMachine").host("localhost").create();
-    myMachine.out("(objectClass=org.toto.HelloWorld)").add();
-    myMachine.instance("RoSe_exporter.jabsorb").withProperty("jabsorb.servlet.name","/jsonrpc").create();
-    myMachine.start(); //start the machine!
-
+```java
+BundleContext context;
+//...
+Machine myMachine = machine(context,"myMachine").host("localhost").create();
+myMachine.out("(objectClass=org.toto.HelloWorld)").add();
+myMachine.instance("RoSe_exporter.jabsorb").withProperty("jabsorb.servlet.name","/jsonrpc").create();
+myMachine.start(); //start the machine!
+```
 
 You can add and remove Machines connections and instances at runtime, stopping the machine and starting it. There is three way to create the RoSe Machine: 
 
@@ -23,8 +25,6 @@ You can add and remove Machines connections and instances at runtime, stopping t
 3. over HTTP with the [REST API](Rest-API.html).
 
 Furthermore, you can check the Machines running in OSGi as well as the services exported and the remote services imported through those machines thanks to the [[REST Inspect API]].
-
-
 
 |Property|Type|Optional|Default|
 |-----------|------------|------------|------------|

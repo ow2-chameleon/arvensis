@@ -1,0 +1,12 @@
+# In a few words
+
+The **RoSe Machine** is the core concept of RoSe. A machine allows you to import local OSGi services via different protocol (e.g web-services, http, json-rpc) and to create proxies in the OSGi broker for available remote services.
+
+The main idea behind RoSe is to have a clear separation of concern between the distributed part of your applications and the local ones.
+
+![big picture](../img/source/rose-01.svg)
+
+# What RoSe arvensis is all about #
+
+The main idea behind RoSe is to have a clear separation of concern between the distributed part of your applications and the local ones. The arvensis framework is based on OSGi and iPOJO. Once you have populated your OSGi framework with the arvensis bundles and your applications ones you are able to dynamically create and publishes Endpoint Description for your local OSGi services.
+
