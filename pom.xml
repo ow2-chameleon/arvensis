@@ -63,11 +63,17 @@
 				<module>jax-ws/cxf-importer</module>
 				<module>json-rpc/jabsorb-exporter</module>
 				<module>json-rpc/jabsorb-importer</module>
+				<module>commons/grizzly</module>
 				<!-- atmosphere, should cease to exist as a 3td party application -->
 				<module>3tdparty/atmosphere-osgi</module>
 				<!-- rose deployment package -->
 				<module>3tdparty/rose-dp</module>
-			</modules>
+				<!-- Tests  		
+				<module>jax-rs/jersey-exporter-it</module>
+				<module>jax-ws/cxf-exporter-it</module>
+				<module>json-rpc/jabsorb-exporter-it</module>
+				<module>wui/wui-it</module> -->
+	</modules>
 		</profile>
 		<!-- Profile used to build core bundles -->
 		<profile>
