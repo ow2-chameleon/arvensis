@@ -1,5 +1,7 @@
 #RoSe Readme 
 
+Reference, doc, example can be found in [here](http://ow2-chameleon.github.io/arvensis/release/)
+
 ## Source Organization
 
 This folder contains the code source of the OW2 Chameleon RoSe project.
