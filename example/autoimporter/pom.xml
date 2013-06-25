@@ -1,0 +1,147 @@
+<?json version="1.0"?>
+<!-- Copyright 2009 OW2 Chameleon Licensed under the Apache License, Version 
+	2.0 (the "License"); you may not use this file except in compliance with 
+	the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 
+	Unless required by applicable law or agreed to in writing, software distributed 
+	under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES 
+	OR CONDITIONS OF ANY KIND, either express or implied. See the License for 
+	the specific language governing permissions and limitations under the License. -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<!-- Project's parent -->
+	<parent>
+		<groupId>org.ow2.chameleon.rose</groupId>
+		<artifactId>rose-parent</artifactId>
+		<version>1.2.2-SNAPSHOT</version>
+		<relativePath>../../pom.xml</relativePath>
+	</parent>
+
+	<groupId>org.ow2.chameleon.rose.autoimporter</groupId>
+	<artifactId>autoimporter</artifactId>
+	<modelVersion>4.0.0</modelVersion>
+	<packaging>bundle</packaging>
+	<name>OW2 Chameleon - Rose autoimporter</name>
+	<description>Auto-Imports devices according as long as their ImportationSpecication is available</description>
+
+	<!-- All the version number should be set here -->
+	<properties>
+		<!-- Dependencies version -->
+		<ipojo.version>1.10.0</ipojo.version>
+		<osgi.version>4.2.0</osgi.version>
+		<javax.servlet.version>2.5</javax.servlet.version>
+
+		<!-- Plugins version -->
+		<bundle.plugin.version>2.3.4</bundle.plugin.version>
+		<compiler.plugin.version>2.1</compiler.plugin.version>
+		<ipojo.plugin.version>1.10.0</ipojo.plugin.version>
+
+		<!-- Encoding -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.ipojo</artifactId>
+			<version>${ipojo.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.ipojo.annotations</artifactId>
+			<version>${ipojo.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.ws.rs</groupId>
+			<artifactId>jsr311-api</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.ow2.chameleon.rose</groupId>
+			<artifactId>rose-core</artifactId>
+			<version>1.2.2-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.upnp.basedriver</artifactId>
+			<version>0.8.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.upnp.extra</artifactId>
+			<version>0.4.0</version>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>${bundle.plugin.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Bundle-SymbolicName>
+							${project.artifactId}
+						</Bundle-SymbolicName>
+						<Private-Package>
+							rose.example.jaxrs.internal
+						</Private-Package>
+						<Export-Package>
+							org.ow2.chameleon.rose.importer,
+							org.ow2.chameleon.rose.importer.meta,
+							org.ow2.chameleon.rose.importer.meta.impl,
+							org.ow2.chameleon.rose.importer.module.philips,
+							org.ow2.chameleon.rose.importer.module.generic,
+							org.ow2.chameleon.rose.importer.upnp.discovery,
+							org.ow2.chameleon.rose.importer.essay
+						</Export-Package>
+						<Import-Package>
+							javax.ws.rs;version="[0,2)",
+							*
+						</Import-Package>
+					</instructions>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-ipojo-plugin</artifactId>
+				<version>${ipojo.plugin.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>ipojo-bundle</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${compiler.plugin.version}</version>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+    <pluginRepositories>  
+    	<pluginRepository>
+    	    <id>azeazeaz</id>
+			<name>ergdgdf</name>
+			<url>http://repository.apache.org/content/repositories/orgapachefelix-021/</url>
+		</pluginRepository>
+	</pluginRepositories>
+	
+	<repositories>
+	    <repository>
+	        <id>azeazeaz</id>
+			<name>ergdgdf</name>
+			<url>http://repository.apache.org/content/repositories/orgapachefelix-021/</url>
+	    </repository>
+	</repositories>
+	
+</project>
