@@ -1,7 +1,9 @@
 package org.ow2.chameleon.rose.importer.upnp.discovery;
 
 import java.util.Dictionary;
+import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.Map;
 import java.util.Properties;
 
 import org.apache.felix.ipojo.ComponentInstance;
@@ -18,16 +20,16 @@ import org.apache.felix.ipojo.annotations.Validate;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 import org.osgi.service.upnp.UPnPDevice;
-import org.ow2.chameleon.rose.dto.ImportationDeclaration;
-import org.ow2.chameleon.rose.dto.RoseImporterDiscovery;
+import org.ow2.chameleon.rose.ng.DiscoveryService;
+import org.ow2.chameleon.rose.ng.dto.ImportDeclaration;
 
 @Component
 @Instantiate
 @Provides
-public class BinaryLightUPnPDiscovery implements RoseImporterDiscovery {
+public class BinaryLightUPnPDiscovery implements DiscoveryService {
 
-	@Requires(filter = "(factory.name=ImportationDeclarationImplFactory)")
-	Factory importationDeclarationFactory;
+	@Requires(filter = "(factory.name=ImportDeclarationFactory)")
+	Factory importDeclarationFactory;
 
 	Hashtable<String, ComponentInstance> managedComponentInstances = new Hashtable<String, ComponentInstance>();
 
@@ -39,56 +41,51 @@ public class BinaryLightUPnPDiscovery implements RoseImporterDiscovery {
 
 	@Validate
 	public void start() {
-
 		System.out.println("starting discovery..");
-
 	}
 
 	@Invalidate
 	public void stop() {
-
 		System.out.println("stopping discovery..");
-
 	}
 
 	@Bind(filter = "(UPnP.device.type=urn:schemas-upnp-org:device:BinaryLight:1)", id = UPnPDevice.ID, aggregate = true, optional = true)
 	@SuppressWarnings("unused")
 	private void boundDevice(UPnPDevice device, ServiceReference sr) {
 
-		System.out.println(this.getClass().getSimpleName()+" binding "+device);
-		
-		String instancename = generateInstanceName(sr);
+		System.out.println(this.getClass().getSimpleName() + " binding " + device);
+
+		String instanceName = generateInstanceName(sr);
 		String id = generateID(sr);
-		
-		System.out.println("----- DEVICE --->"
-				+ sr.getProperty(device.FRIENDLY_NAME));
-		
-		String aliasDevice = String.format("%s-%s", instancename, id);
+
+		System.out.println("----- DEVICE --->" + sr.getProperty(device.FRIENDLY_NAME));
+
+		String aliasDevice = String.format("%s-%s", instanceName, id);
 		String aliasImportationDeclaration = String.format("ImportationDeclaration-%s", id);
-		
+
 		InstanceManager ci = null;
 
 		try {
 
-			Dictionary importationDeclarationConfiguration = new Properties();
-			importationDeclarationConfiguration.put("rose.importer.level", "1");
-			importationDeclarationConfiguration.put("rose.upnp.id", id);
-			importationDeclarationConfiguration.put("rose.upnp.device", device);
-			importationDeclarationConfiguration.put("rose.upnp.alias", aliasDevice);
-			
-			ci = (InstanceManager)importationDeclarationFactory.createComponentInstance(importationDeclarationConfiguration);
-			
-			ImportationDeclaration impDec=(ImportationDeclaration)ci.getPojoObject();
-			
-			
-			context.registerService(new String[]{ImportationDeclaration.class.getCanonicalName()}, ci.getPojoObject(), importationDeclarationConfiguration);
-			
+			Map<String, Object> metadata = new HashMap<String, Object>();
+			metadata.put("rose.importer.level", "1");
+			metadata.put("rose.upnp.id", id);
+			metadata.put("rose.upnp.device", device);
+			metadata.put("rose.upnp.alias", aliasDevice);
+
+			Dictionary config = new Properties();
+			config.put("metadata", metadata);
+
+			ci = (InstanceManager) importDeclarationFactory.createComponentInstance(config);
+
+			ImportDeclaration impDec = (ImportDeclaration) ci.getPojoObject();
+
+			context.registerService(new String[]{ImportDeclaration.class.getCanonicalName()}, ci.getPojoObject(), config);
+
 			managedComponentInstances.put(id, ci);
-			
+
 		} catch (Exception e) {
-			
 			managedComponentInstances.remove(id);
-			
 			e.printStackTrace();
 		}
 
@@ -98,26 +95,23 @@ public class BinaryLightUPnPDiscovery implements RoseImporterDiscovery {
 	@SuppressWarnings("unused")
 	private void unboundDevice(UPnPDevice device, ServiceReference sr) {
 
-		System.out.println(this.getClass().getSimpleName()+" binding "+device);
-		
+		System.out.println(this.getClass().getSimpleName() + " binding " + device);
+
 		String id = sr.getProperty(UPnPDevice.UDN).toString();
-		String instancename = sr.getProperty(UPnPDevice.FRIENDLY_NAME)
-				.toString().replace(" ", "");
 
 		ComponentInstance cm = managedComponentInstances.get(id);
-		
-		if(cm!=null){
+
+		if (cm != null) {
 			cm.dispose();
 		}
 
 	}
-	
-	private String generateInstanceName(ServiceReference sr){
-		return sr.getProperty(UPnPDevice.FRIENDLY_NAME)
-		.toString().replace(" ", "");
+
+	private String generateInstanceName(ServiceReference sr) {
+		return sr.getProperty(UPnPDevice.FRIENDLY_NAME).toString().replace(" ", "");
 	}
-	
-	private String generateID(ServiceReference sr){
+
+	private String generateID(ServiceReference sr) {
 		return sr.getProperty(UPnPDevice.UDN).toString();
 	}
 }

@@ -86,6 +86,10 @@
 							org.ow2.chameleon.rose.introspect;version=${project.version},
 							org.ow2.chameleon.rose.registry;version=${project.version},
 							org.ow2.chameleon.rose.util;version=${project.version},
+
+							org.ow2.chameleon.rose.ng;version=${project.version},
+							org.ow2.chameleon.rose.ng.dto;version=${project.version},
+
 							org.osgi.service.remoteserviceadmin;-split-package:=merge-first,
 						</Export-Package>
                         <Import-Package>

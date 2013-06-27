@@ -1,11 +1,11 @@
-package org.ow2.chameleon.rose.dto;
+package org.ow2.chameleon.rose.ng.dto;
 
 import java.util.Dictionary;
 import java.util.List;
 
 import org.ow2.chameleon.rose.ImporterService;
 
-public interface ImportationDeclaration {
+public interface ImportDeclaration {
 
 	String IMPORTATION_PROTOCOL_NAME = "rose.importation.protocol.name";
 
@@ -17,7 +17,9 @@ public interface ImportationDeclaration {
 	
 	Boolean isBound();
 	
-	void bind();
+	void bind(ImporterService importerService);
+
+    void unBind(ImporterService importerService);
 	
 	List<ImporterService> getImporters();
 	

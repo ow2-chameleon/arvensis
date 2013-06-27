@@ -90,8 +90,6 @@
 						</Private-Package>
 						<Export-Package>
 							org.ow2.chameleon.rose.importer,
-							org.ow2.chameleon.rose.importer.meta,
-							org.ow2.chameleon.rose.importer.meta.impl,
 							org.ow2.chameleon.rose.importer.module.philips,
 							org.ow2.chameleon.rose.importer.module.generic,
 							org.ow2.chameleon.rose.importer.upnp.discovery,
