@@ -190,7 +190,21 @@
 			<name>Maven Java Net Snapshots and Releases</name>
 			<url>https://maven.java.net/content/groups/public</url>
 		</repository>
+
+        <repository>
+            <id>adele</id>
+            <name>Adele Release</name>
+            <url>https://repository-icasa.forge.cloudbees.com/release/</url>
+        </repository>
 	</repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>adele</id>
+            <name>Adele Release</name>
+            <url>https://repository-icasa.forge.cloudbees.com/release/</url>
+        </pluginRepository>
+    </pluginRepositories>
 
 	<build>
 		<plugins>

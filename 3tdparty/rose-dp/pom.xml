@@ -34,14 +34,7 @@
 	</dependencies>
 
 
-	<pluginRepositories>
-	<!-- de.akquinet.gomobile:maven-dp-plugin dependency -->
-	    <pluginRepository>
-	      <id>adele-repos</id>
-		<name>Dynamis-technology adele</name>
-		<url>http://maven.dynamis-technologies.com/artifactory/adele-repos/</url>
-	    </pluginRepository>
-	</pluginRepositories>
+
 
 	<build>
 		<plugins>
