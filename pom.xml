@@ -168,12 +168,12 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
-		<!-- cloudbee repo -->
-		<repository>
-			<id>rose-nexus-release</id>
-			<name>Cloudbees Private Repository - RoSe - Release </name>
-			<url>http://repository.ow2.org/nexus/service/local/staging/deploy/maven2/</url>
-		</repository>
+		<!--&lt;!&ndash; cloudbee repo &ndash;&gt;-->
+		<!--<repository>-->
+			<!--<id>rose-nexus-release</id>-->
+			<!--<name>Cloudbees Private Repository - RoSe - Release </name>-->
+			<!--<url>http://repository.ow2.org/nexus/service/local/staging/deploy/maven2/</url>-->
+		<!--</repository>-->
 		<repository>
 			<id>cloudbees-rose-release</id>
 			<name>Cloudbees Private Repository - RoSe - Release </name>
