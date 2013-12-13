@@ -64,7 +64,7 @@ public class RESTInspectTest {
                         mavenBundle().groupId("org.ow2.chameleon.rose").artifactId("rose-core").versionAsInProject(),
                         mavenBundle().groupId("org.ow2.chameleon.rose.rest").artifactId("jersey-exporter").versionAsInProject(),
                         //httpService & dependencies
-                        mavenBundle().groupId("com.sun.grizzly.osgi").artifactId("grizzly-httpservice-bundle").versionAsInProject(),
+                        mavenBundle().groupId("org.glassfish.grizzly.osgi").artifactId("grizzly-httpservice-bundle").versionAsInProject(),
                         mavenBundle().groupId("com.sun.jersey").artifactId("jersey-server").versionAsInProject(),
                         mavenBundle().groupId("com.sun.jersey").artifactId("jersey-client").versionAsInProject(),
                         mavenBundle().groupId("com.sun.jersey").artifactId("jersey-core").versionAsInProject(),
